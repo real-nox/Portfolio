@@ -265,9 +265,9 @@ nav {
     border-color: rgb(60, 60, 60);
 }
 
-/*EXP*/
+/*Projects*/
 
-.exp {
+.project {
     background-image: url(background1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -279,7 +279,7 @@ nav {
     align-items: center;
 }
 
-.exp .centerexp {
+.project .centerprojects {
     height: 80vh;
     width: 70%;
     display: flex;
@@ -287,7 +287,7 @@ nav {
     flex-direction: column;
 }
 
-.experience {
+.projects {
     padding-top: 20px;
     height: 80%;
     width: 80%;
@@ -307,9 +307,15 @@ nav {
     gap: 25px;
 }
 
-.boxC.expi {
-    height: 20vh;
+.boxC.projec {
+    height: 12.5vh;
     width: 90%;
+}
+
+.boxC.projec a {
+    color: blue;
+    font-size: large;
+    font-weight: bold;
 }
 
 .roadmap {
@@ -321,6 +327,13 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 80px;
+    transition: background-color 0.5s ease;
+}
+
+.roadmap:hover {
+    background-color: rgb(211, 211, 211);
+    transition: background-color 0.5s ease;
 }
 
 .item1,
@@ -346,7 +359,7 @@ nav {
     background-color: rgb(154, 255, 96);
 }
 
-.boxC.expi {
+.boxC.project {
     background-color: white;
     box-shadow: 9px 9px 0px black;
 }
@@ -492,7 +505,7 @@ nav {
         width: auto;
     }
 
-    .experience {
+    .projects {
         width: 100%;
     }
 }
