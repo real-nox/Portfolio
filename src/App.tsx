@@ -287,8 +287,12 @@ function App() {
             {menuList.map((s) => (
               <a
                 key={s}
+                style={{
+                  color: activeSection === s ? '#f0ede8' : '#666',
+                }}
                 href={`#${s}`}
-                className="font-mono text-xs tracking-widest uppercase text-[#666] hover:text-[#f0ede8] transition-colors"
+                className="font-mono text-xs tracking-widest uppercase text-[#666] hover:text-[#f0ede8] transition-colors" 
+                onClick={() =>{ setActiveSection(s)}}
               >
                 {s}
               </a>
@@ -313,10 +317,13 @@ function App() {
           <div className="md:hidden border-t border-[#1a1a1a] bg-[#080808] px-6 py-4 flex flex-col gap-4">
             {menuList.map((s) => (
               <a
+              style={{
+                  color: activeSection === s ? '#f0ede8' : '#666',
+                }}
                 key={s}
                 href={`#${s}`}
                 className="font-mono text-xs tracking-widest uppercase text-[#888]"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {setMenuOpen(false); setActiveSection(s)}}
               >
                 {s}
               </a>
