@@ -110,6 +110,7 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[0]; index: number }) {
         background: hovered ? '#111' : 'transparent',
         borderColor: hovered ? p.color : '#222',
       }}
+      key={index}
       target="_blank"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -176,6 +177,7 @@ function ExperienceCard({ p, index }: { p: (typeof EXPERIENCES)[0]; index: numbe
 
   return (
     <a
+      key={index}
       className="block border border-[#222] p-6 relative overflow-hidden transition-all duration-300 group"
       style={{
         background: hovered ? '#111' : 'transparent',
