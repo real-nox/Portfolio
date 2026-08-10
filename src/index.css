@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #080808;
+  --color-foreground: #f0ede8;
+  --color-accent: #c8ff57;
+  --color-accent2: #57e5ff;
+  --color-muted: #2a2a2a;
+  --color-muted-fg: #888;
+  --color-card: #111111;
+  --color-border: #222;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080808;
+  color: #f0ede8;
+  font-family: 'Outfit', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8ff57;
+  border-radius: 2px;
+}
+
+::selection {
+  background: #c8ff57;
+  color: #080808;
+}
+
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0); }
+  25% { clip-path: inset(70% 0 10% 0); transform: translate(4px, 0); }
+  50% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 0); }
+  75% { clip-path: inset(10% 0 80% 0); transform: translate(3px, 0); }
+  100% { clip-path: inset(60% 0 20% 0); transform: translate(-4px, 0); }
+}
+
+.glitch-layer {
+  animation: glitch 0.15s steps(1) infinite;
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+
+.float-anim {
+  animation: float 6s ease-in-out infinite;
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
