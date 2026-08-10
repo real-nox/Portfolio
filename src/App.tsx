@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { PROJECTS, SKILLS, TICKER_ITEMS } from "./constants/constants";
+import { EXPERIENCES, PROJECTS, SKILLS, TICKER_ITEMS } from "./constants/constants";
 
 import pfp from "./img/pfp.jpg"
 import resume from "./img/SIRRIRAYANECV.pdf"
 
-type menus = "home" | "about" | "projects" | "stack" | "experience";
+type menus = "home" | "about" | "experiences" | "projects" | "skills" | "contact";
 
 function useCursor() {
   const [pos, setPos] = useState({ x: -200, y: -200 });
@@ -110,6 +110,7 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[0]; index: number }) {
         background: hovered ? '#111' : 'transparent',
         borderColor: hovered ? p.color : '#222',
       }}
+      target="_blank"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -121,7 +122,7 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[0]; index: number }) {
       <div className="flex items-start justify-between mb-4">
         <span
           className="font-mono text-xs tracking-widest"
-          style={{ color: hovered ? p.color : '#555' }}
+          style={{ color: hovered ? p.color : '#666' }}
         >
           {p.id} / {p.year}
         </span>
@@ -149,7 +150,10 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[0]; index: number }) {
         {p.tags.map((tag) => (
           <span
             key={tag}
-            className="font-mono text-xs px-2 py-1 border border-[#333] text-[#555]"
+            style={{
+              color: hovered ? p.color2 : '#666',
+            }}
+            className="font-mono text-xs px-2 py-1 border border-[#333] text-[#666]"
           >
             {tag}
           </span>
@@ -167,6 +171,69 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[0]; index: number }) {
   )
 }
 
+function ExperienceCard({ p, index }: { p: (typeof EXPERIENCES)[0]; index: number }) {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <a
+      className="block border border-[#222] p-6 relative overflow-hidden transition-all duration-300 group"
+      style={{
+        background: hovered ? '#111' : 'transparent',
+        borderColor: hovered ? p.color : '#222',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+        style={{ background: p.color }}
+      />
+
+      <div className="flex items-start justify-between mb-4">
+        <span
+          className="font-mono text-xs tracking-widest"
+          style={{ color: hovered ? p.color : '#666' }}
+        >
+          {p.id} / {p.year}
+        </span>
+      </div>
+
+      <h3
+        className="font-display text-2xl font-bold mb-3 transition-colors duration-300"
+        style={{
+          fontVariationSettings: '"opsz" 72',
+          color: hovered ? p.color : '#f0ede8',
+        }}
+      >
+        {p.title}
+      </h3>
+
+      <p className="text-sm text-[#888] leading-relaxed mb-4">{p.desc}</p>
+
+      <div className="flex gap-2 flex-wrap">
+        {p.tags.map((tag) => (
+          <span
+            key={tag}
+            className="font-mono text-xs px-2 py-1 border border-[#333] text-[#666]"
+            style={{
+              color: hovered ? p.color2 : '#666',
+            }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div
+        className="absolute bottom-0 left-0 h-px transition-all duration-500"
+        style={{
+          background: p.color,
+          width: hovered ? '100%' : '0%',
+        }}
+      />
+    </a>
+  )
+}
 
 function App() {
   const cursor = useCursor();
@@ -177,9 +244,10 @@ function App() {
   const menuList: menus[] = [
     "home",
     "projects",
+    "experiences",
     "about",
-    "stack",
-    "experience"
+    "skills",
+    "contact",
     ];
 
   const strTime = time.toLocaleTimeString("en-US", {
@@ -220,7 +288,7 @@ function App() {
               <a
                 key={s}
                 href={`#${s}`}
-                className="font-mono text-xs tracking-widest uppercase text-[#555] hover:text-[#f0ede8] transition-colors"
+                className="font-mono text-xs tracking-widest uppercase text-[#666] hover:text-[#f0ede8] transition-colors"
               >
                 {s}
               </a>
@@ -230,7 +298,7 @@ function App() {
           {/* timer */}
           <div className="hidden md:flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-[#c8ff57] animate-pulse" />
-            <span className="font-mono text-xs text-[#555]">{strTime}</span>
+            <span className="font-mono text-xs text-[#666]">{strTime}</span>
           </div>
 
           <button
@@ -257,7 +325,7 @@ function App() {
         )}
       </nav>
 
-            {/* Hero */}
+      {/* Hero */}
       <section id="home" className="pt-14 min-h-screen flex flex-col justify-between relative overflow-hidden">
         {/* Grid lines */}
         <div
@@ -272,7 +340,7 @@ function App() {
         <div className="flex-1 flex flex-col justify-center px-6 md:px-12 pt-12 pb-8 max-w-6xl mx-auto w-full">
           <div className="mb-6 flex items-center gap-3">
             <div className="w-2 h-2 bg-[#c8ff57] rounded-full animate-pulse" />
-            <span className="font-mono text-xs text-[#555] tracking-widest">
+            <span className="font-mono text-xs text-[#666] tracking-widest">
               STUDENT - SE - CLASS OF '26
             </span>
           </div>
@@ -322,7 +390,7 @@ function App() {
         </div>
       </section>
 
-      {/* Work */}
+      {/* Projects */}
       <section id="projects" className="py-24 px-6 md:px-12 max-w-6xl mx-auto">
         <div className="flex items-end justify-between mb-12 border-b border-[#1a1a1a] pb-6">
           <div>
@@ -330,7 +398,7 @@ function App() {
             <h2 className="font-display font-black text-4xl md:text-6xl" style={{ fontVariationSettings: '"opsz" 72' }}>
               Selected
               <br />
-              <span style={{ WebkitTextStroke: '1px #555', color: 'transparent' }}>Projects</span>
+              <span style={{ WebkitTextStroke: '1px #666', color: 'transparent' }}>Projects</span>
             </h2>
           </div>
           <span className="font-mono text-xs text-[#444] hidden md:block">{PROJECTS.length} projects</span>
@@ -345,12 +413,35 @@ function App() {
         </div>
       </section>
 
+      {/* Experience */}
+      <section id="experiences" className="py-24 px-6 md:px-12 max-w-6xl mx-auto">
+        <div className="flex items-end justify-between mb-12 border-b border-[#1a1a1a] pb-6">
+          <div>
+            <p className="font-mono text-xs text-[#c8ff57] tracking-widest uppercase mb-2">03 / Experiences</p>
+            <h2 className="font-display font-black text-4xl md:text-6xl" style={{ fontVariationSettings: '"opsz" 72' }}>
+              Selected
+              <br />
+              <span style={{ WebkitTextStroke: '1px #666', color: 'transparent' }}>Experiences</span>
+            </h2>
+          </div>
+          <span className="font-mono text-xs text-[#444] hidden md:block">{EXPERIENCES.length} experiences</span>
+        </div>
+
+        <div className="grid md:grid-cols-1 gap-px bg-[#1a1a1a]">
+          {EXPERIENCES.map((p, i) => (
+            <div key={p.id} className="bg-[#080808]">
+              <ExperienceCard p={p} index={i} />
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* About */}
       <section id="about" className="py-24 border-t border-[#1a1a1a]">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-5 gap-12 md:gap-24">
             <div className="md:col-span-2">
-              <p className="font-mono text-xs text-[#c8ff57] tracking-widest uppercase mb-2">03 / ABOUT</p>
+              <p className="font-mono text-xs text-[#c8ff57] tracking-widest uppercase mb-2">04 / ABOUT</p>
               <h2
                 className="font-display font-black text-4xl md:text-5xl mb-8 leading-tight"
                 style={{ fontVariationSettings: '"opsz" 72' }}
@@ -387,7 +478,7 @@ function App() {
                     <div className="font-display font-black text-3xl text-[#c8ff57]" style={{ fontVariationSettings: '"opsz" 36' }}>
                       {stat.value}
                     </div>
-                    <div className="font-mono text-xs text-[#555] uppercase tracking-wider mt-1">
+                    <div className="font-mono text-xs text-[#666] uppercase tracking-wider mt-1">
                       {stat.label}
                     </div>
                   </div>
@@ -401,13 +492,13 @@ function App() {
       {/* Skills */}
       <section id="skills" className="py-24 border-t border-[#1a1a1a]">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <p className="font-mono text-xs text-[#c8ff57] tracking-widest uppercase mb-2">04 / SKILLS</p>
+          <p className="font-mono text-xs text-[#c8ff57] tracking-widest uppercase mb-2">05 / SKILLS</p>
           <h2
             className="font-display font-black text-4xl md:text-6xl mb-12"
             style={{ fontVariationSettings: '"opsz" 72' }}
           >
             What I{' '}
-            <span style={{ WebkitTextStroke: '1px #555', color: 'transparent' }}>know</span>
+            <span style={{ WebkitTextStroke: '1px #666', color: 'transparent' }}>know</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-24">
@@ -418,7 +509,7 @@ function App() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <p className="font-mono text-xs text-[#555] uppercase tracking-widest mb-2">Also comfortable with</p>
+              <p className="font-mono text-xs text-[#666] uppercase tracking-widest mb-2">Also comfortable with</p>
               {[
                 'PostgreSQL',
                 'Docker & CI/CD',
@@ -439,7 +530,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
             <div>
-              <p className="font-mono text-xs text-[#c8ff57] tracking-widest uppercase mb-2">05 / CONTACT</p>
+              <p className="font-mono text-xs text-[#c8ff57] tracking-widest uppercase mb-2">06 / CONTACT</p>
               <h2
                 className="font-display font-black text-4xl md:text-6xl leading-tight mb-8"
                 style={{ fontVariationSettings: '"opsz" 72' }}
@@ -458,7 +549,7 @@ function App() {
                 className="group inline-flex items-center gap-4 border border-[#333] px-6 py-4 hover:border-[#c8ff57] transition-colors"
               >
                 <div>
-                  <div className="font-mono text-xs text-[#555] uppercase tracking-wider mb-1">Email</div>
+                  <div className="font-mono text-xs text-[#666] uppercase tracking-wider mb-1">Email</div>
                   <div className="text-sm text-[#f0ede8] group-hover:text-[#c8ff57] transition-colors">
                     sirri.rayane.ma@gmail.com
                   </div>
@@ -485,7 +576,7 @@ function App() {
                     </span>
                     <span
                       className="text-sm transition-colors"
-                      style={{ color: '#555' }}
+                      style={{ color: '#666' }}
                     >
                       {link.handle}
                     </span>
@@ -511,7 +602,7 @@ function App() {
           </span>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-[#c8ff57] animate-pulse" />
-            <span className="font-mono text-xs text-[#555]">
+            <span className="font-mono text-xs text-[#666]">
               {strTime} UTC+1
             </span>
           </div>
