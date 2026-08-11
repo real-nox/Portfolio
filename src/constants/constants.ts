@@ -40,6 +40,7 @@ export const SKILLS : skills[] = [
   { label: 'TypeScript', level: 70 },
   { label: 'Python', level: 65 },
   { label: 'React', level: 80 },
+  { label: "C/C++", level: 35},
 ]
 
 export const TICKER_ITEMS = [
