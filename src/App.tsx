@@ -639,7 +639,7 @@ function App() {
               <p className="font-mono text-xs text-[#666] uppercase tracking-widest mb-2">
                 Also comfortable with
               </p>
-              {["PostgreSQL", "Docker & CI/CD", "Figma"].map((item) => (
+              {["PostgreSQL", "Docker & CI/CD", "Figma", "Cloud computing"].map((item) => (
                 <div
                   key={item}
                   className="flex items-center gap-3 text-sm text-[#888] group cursor-default"
