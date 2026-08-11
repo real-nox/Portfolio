@@ -293,6 +293,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<menus>("home");
 
+  if (cursor.isMobile) return null
   const menuList: menus[] = [
     "home",
     "projects",
