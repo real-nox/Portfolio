@@ -20,13 +20,35 @@ type menus =
 
 function useCursor() {
   const [pos, setPos] = useState({ x: -200, y: -200 });
+  const [isMobile, setIsMobile] = useState(false);
+  const frameRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const move = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    setIsMobile(isTouch);
+
+    if (isTouch) return;
+
+    const handleMove = (e: MouseEvent) => {
+      if (frameRef.current !== null) return;
+
+      frameRef.current = requestAnimationFrame(() => {
+        setPos({ x: e.clientX, y: e.clientY });
+        frameRef.current = null;
+      });
+    };
+
+    window.addEventListener("mousemove", handleMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
   }, []);
-  return pos;
+
+  return { ...pos, isMobile };
 }
 
 function useTime() {
