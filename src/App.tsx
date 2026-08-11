@@ -7,6 +7,7 @@ import {
 } from "./constants/constants";
 
 import pfp from "./img/pfp.jpg";
+import icon from "./img/R.png";
 import resume from "./img/SIRRIRAYANECV.pdf";
 
 type menus =
