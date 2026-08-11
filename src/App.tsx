@@ -414,12 +414,14 @@ function App() {
               <div className="flex flex-row justify-between gap-[5px]">
                 <a
                   href="https://github.com/real-nox"
+                  target="_blank"
                   className="inline-flex items-center gap-3 bg-[#c8ff57] text-[#080808] font-mono text-xs font-bold tracking-widest uppercase px-6 py-3 hover:bg-[#f0ede8] transition-colors self-start md:self-end"
                 >
                   VIEW GITHUB
                   <span>→</span>
                 </a>
                 <a
+                  target="_blank"
                   href={resume}
                   className="inline-flex items-center gap-3 bg-[#c8ff57] text-[#080808] font-mono text-xs font-bold tracking-widest uppercase px-6 py-3 hover:bg-[#f0ede8] transition-colors self-start md:self-end"
                 >
