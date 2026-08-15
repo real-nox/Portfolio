@@ -707,7 +707,7 @@ function App() {
                 {
                   platform: "LinkedIn",
                   handle: "Rayane SIRRI",
-                  url: "https://www.linkedin.com/in/rayane-sirri-925b25371/",
+                  url: "https://www.linkedin.com/in/rayane-sirri/",
                   color: "#57e5ff",
                   target: "_parent",
                 },

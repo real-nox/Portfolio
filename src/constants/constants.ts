@@ -13,11 +13,21 @@ export const PROJECTS = [
     id: '06',
     title: 'Chatty',
     tags: ['Node.js', 'PostgreSQL', 'React'],
-    desc: "I coded ChatAPP my personal project using : Node.js (JavaScript ES6+), Express, PostgreSQL, EJS and socket.io\n- I learned how to develop chat web app using websockets.\n- I deepened my skills in REST API and it's middlewares",
+    desc: "I coded ChatAPP my personal project using : React.js (JavaScript ES6+), Express, PostgreSQL and socket.io\n- I learned how to develop chat web app using websockets.\n- I deepened my skills in REST API and it's middlewares",
     year: '2026',
     color: '#ee8779',
     color2: '#b45245',
     link: 'https://github.com/real-nox/ChatAPP',
+  },
+  {
+    id: '01',
+    title: 'StudentWeb',
+    tags: ['Node.js', 'PostgreSQL', 'React'],
+    desc: "I coded StudentWeb my personal project using : Node.js (JavaScript ES6+), Express, Neon(PostgreSQL), EJS\n- It was my first full stack web project.",
+    year: '2026',
+    color: '#79eeac',
+    color2: '#45b46c',
+    link: 'https://github.com/real-nox/Student-Web',
   },
 ]
 
