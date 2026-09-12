@@ -1,12 +1,33 @@
-export const PROJECTS = [
+type projets = {
+  id: string,
+  title: string,
+  tags: string[],
+  desc: string,
+  year: string,
+  color: string,
+  color2: string,
+  link: string
+}[]
+
+export const PROJECTS: projets = [
+  {
+    id: "09",
+    title: "Parlons",
+    tags: ["Expo", "React Native", "TypeScript", "Neon"],
+    desc: "Personal project using: React Native Expo.\nMobile App for French Language development.\nProject under development!",
+    year: "2026",
+    color: "#555",
+    color2: "",
+    link: "https://github.com/real-nox/Parlons"
+  },
   {
     id: '08',
     title: 'Storely',
     tags: ['React.js', 'Neon', 'TypeScript'],
     desc: "I coded Chatty, my personal project, using: React.js (TypeScript), Express, Neon.\nI deepened my skills in strict typing with TypeScript and handling asynchronous data fetching from REST APIs.",
     year: '2026',
-    color: '#57e5ff',
-    color2: '#29a0b5',
+    color: '#6366F1',
+    color2: '#4d50fa',
     link: 'https://github.com/real-nox/Storely',
   },
   {
