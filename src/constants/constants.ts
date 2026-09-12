@@ -14,7 +14,7 @@ export const PROJECTS: projets = [
     id: "09",
     title: "Parlons",
     tags: ["Expo", "React Native", "TypeScript", "Neon"],
-    desc: "Personal project using: React Native Expo.\nMobile App for French Language development helpful for TCF.\nProject under development",
+    desc: "Personal project using: React Native Expo.\nMobile App for French Language development helpful for TCF.\n\nProject under development",
     year: "2026",
     color: '#6366F1',
     color2: '#4d50fa',
