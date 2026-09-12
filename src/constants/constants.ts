@@ -24,7 +24,7 @@ export const PROJECTS: projets = [
     id: '08',
     title: 'Storely',
     tags: ['React.js', 'Neon', 'TypeScript'],
-    desc: "I coded Chatty, my personal project, using: React.js (TypeScript), Express, Neon.\nI deepened my skills in strict typing with TypeScript and handling asynchronous data fetching from REST APIs.",
+    desc: "I coded Storely, my personal project, using: React.js (TypeScript), Express, Neon.\nI deepened my skills in strict typing with TypeScript and handling asynchronous data fetching from REST APIs.",
     year: '2026',
     color: '#6366F1',
     color2: '#4d50fa',
