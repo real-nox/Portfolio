@@ -189,7 +189,7 @@ function ProjectCard({ p, index }: { p: (typeof PROJECTS)[0]; index: number }) {
         {p.title}
       </h3>
 
-      <p className="text-sm text-[#888] leading-relaxed mb-4">{p.desc}</p>
+      <p className="text-sm text-[#888] leading-relaxed mb-4 whitespace-pre-line">{p.desc}</p>
 
       <div className="flex gap-2 flex-wrap">
         {p.tags.map((tag) => (
